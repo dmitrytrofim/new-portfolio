@@ -8,3 +8,54 @@
  }
 }
 //@mark main
+.main {
+ & {
+  height: 100dvh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  perspective: 1500px;
+  perspective-origin: 50% center;
+  background: url('/src/img/svg/night.svg') center / cover no-repeat,
+   var(--b-060A30);
+ }
+ &__box {
+ }
+}
+
+.box {
+ & {
+  width: 100vw;
+  height: 100dvh;
+  position: relative;
+  transform-style: preserve-3d;
+  transform-origin: 50% 50% -50vw;
+  transition: transform 2s linear 0s;
+  animation: 4s ease-in-out 0s 1 normal backwards running animate-cube;
+ }
+ &__side {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100dvh;
+  box-sizing: border-box;
+  background-color: var(--b-000218);
+  border-left: 1px solid var(--b-000);
+  border-right: 1px solid var(--b-000);
+ }
+}
+.front {
+}
+.right {
+ transform: rotateY(90deg) translateX(100%);
+ transform-origin: top right;
+}
+.left {
+ transform: rotateY(-90deg) translateX(-100%);
+ transform-origin: top left;
+}
+.back {
+ transform: translateZ(-100vw) rotateY(180deg);
+}

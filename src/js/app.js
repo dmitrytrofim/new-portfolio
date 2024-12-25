@@ -14,3 +14,11 @@ class App {
  start() {}
 }
 const app = new App().start();
+
+const box = document.querySelector('.box');
+
+let turn = 0;
+window.addEventListener('click', () => {
+ turn += 90;
+ box.setAttribute('style', `transform: rotateY(-${turn}deg);`);
+});

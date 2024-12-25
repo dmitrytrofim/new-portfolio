@@ -8,8 +8,9 @@
  --t-000: #000;
 
  // background colors
- --b-fff: #fff;
  --b-000: #000;
+ --b-000218: #000218;
+ --b-060A30: #060a30;
  // --b-grad-red: ;
 
  // font-size
@@ -55,7 +56,7 @@ body.page {
  font-weight: 400;
  font-size: var(--);
  line-height: 1.2;
- color: var(--);
+ color: var(--t-fff);
  background-color: var(--);
  &.j-lock {
   overflow: hidden;
