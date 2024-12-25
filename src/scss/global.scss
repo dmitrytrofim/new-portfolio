@@ -1,0 +1,81 @@
+//@mark vars css
+:root {
+ // font-family
+ // --font-: '', sans-serif;
+
+ // text colors
+ --t-fff: #fff;
+ --t-000: #000;
+
+ // background colors
+ --b-fff: #fff;
+ --b-000: #000;
+ // --b-grad-red: ;
+
+ // font-size
+ --sz-16: 16px;
+}
+
+// @media (prefers-color-scheme: dark) {
+//  :root {
+//  }
+// }
+
+//@mark scroll
+::-webkit-scrollbar-button {
+ width: 6px;
+ height: 0;
+}
+::-webkit-scrollbar-track {
+ background-color: var(--b-fff);
+ box-shadow: 0 0 3px var(--b-fff) inset;
+}
+::-webkit-scrollbar-thumb {
+ border-radius: 2px;
+ background-color: var(--b-000);
+ background-position: center;
+ background-repeat: no-repeat;
+}
+::-webkit-resizer {
+ width: 7px;
+ height: 0;
+}
+::-webkit-scrollbar {
+ width: 7px;
+}
+
+//@mark html
+// html {
+//  font-size: 16px !important;
+// }
+
+//@mark page
+body.page {
+ font-family: var(--);
+ font-weight: 400;
+ font-size: var(--);
+ line-height: 1.2;
+ color: var(--);
+ background-color: var(--);
+ &.j-lock {
+  overflow: hidden;
+ }
+}
+
+//@mark wrapper
+.wrapper {
+ position: relative;
+ display: grid;
+ min-height: 100dvh;
+ grid-template-columns: minmax(300px, 1fr);
+ grid-template-rows: auto 1fr auto;
+ overflow: hidden;
+}
+
+//@mark container
+.container {
+ width: 100%;
+ max-width: 1200px;
+ margin: 0 auto;
+ padding: 0 10px;
+}

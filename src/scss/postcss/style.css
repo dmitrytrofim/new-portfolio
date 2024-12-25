@@ -1,0 +1,61 @@
+:root {
+  --t-fff: #fff;
+  --t-000: #000;
+  --b-fff: #fff;
+  --b-000: #000;
+  --sz-16: 16px;
+}
+
+::-webkit-scrollbar-button {
+  width: 6px;
+  height: 0px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: var(--b-fff);
+  box-shadow: 0px 0px 3px var(--b-fff) inset;
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 2px;
+  background-color: var(--b-000);
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+::-webkit-resizer {
+  width: 7px;
+  height: 0px;
+}
+
+::-webkit-scrollbar {
+  width: 7px;
+}
+
+body.page {
+  font-family: var(--);
+  font-weight: 400;
+  font-size: var(--);
+  line-height: 1.2;
+  color: var(--);
+  background-color: var(--);
+}
+body.page.j-lock {
+  overflow: hidden;
+}
+
+.wrapper {
+  position: relative;
+  display: grid;
+  min-height: 100dvh;
+  grid-template-columns: minmax(300px, 1fr);
+  grid-template-rows: auto 1fr auto;
+  overflow: hidden;
+}
+
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 10px;
+}

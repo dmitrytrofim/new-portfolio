@@ -1,0 +1,76 @@
+HTML (webp) по умолчанию
+fragments: head, header, footer
+многостраничник в src
+удалить php файлы в src и fragments
+------------------
+если переход с php:
+package.json: {
+    "browser-sync": "^2.27.7",
+  npm i browser-sync
+  "gulp-file-include": "^2.3.0",
+  npm i gulp-file-include
+}
+path.js, gulpfile.js
+удалить php файлы в src и fragments
+если нужен только сервер
+browser-sync start --server --files "**/*" --no-notify
+============================================================
+Отключить Webpack
+path.js, js.js
+============================================================
+PHP
+package.json: {
+  удалить
+  "gulp-file-include": "^2.3.0",
+}
+------------------
+path.js, gulpfile.js
+удалить html файлы в src и fragments
+------------------
+server watch php:
+сначала запустить gulp
+затем расширение php server
+далее: browser-sync start --proxy "localhost:4000/phptest/index.php" --files "**/*" --no-notify
+если browser-sync не установлен / глобально sudo npm install -g browser-sync
+============================================================
+Bootstrap
+https://bootstrap-4.ru/docs/5.1/getting-started/download/#compiled-css-and-js
+npm i bootstrap
+============================================================
+Адаптив breakpoints
+desktop (max-width: 1200px)
+laptop (max-width: 992px)
+tablets (max-width: 768px)
+phones (max-width: 480px)
+small-phones (max-width: 320px)
+============================================================
+Иконку сайта в адресную строку
+<link rel="icon" href="img/header-logo.ico" type="image/x-icon">
+============================================================
+Проверка
+На переполняемость — document.body.contentEditable = true
+============================================================
+Стартовая структура gulp: archive, gulp, src, gulp-about.txt, gulpfile.js, package.json
+============================================================
+Шаблон для сниппетов 
+{
+ "": {
+  "scope": "javascript,typescript",
+  "prefix": "",
+  "body": [""],
+ }
+}
+============================================================
+CSS для сайтов из 2+ стр.
+html.home [селектор]
+html.contacts [селектор]
+и т.д.
+============================================================
+Обновление пакетов npm
+package.json: в терминале ncu -u
+============================================================
+/archive
+/gulp
+/src
+gulpfile.js
+package.json

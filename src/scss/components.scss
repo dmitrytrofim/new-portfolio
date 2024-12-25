@@ -1,0 +1,36 @@
+//@mark v-hide
+.v-hide {
+ position: absolute;
+ top: 0;
+ left: 0;
+ display: block;
+ width: 1px;
+ height: 1px;
+ clip-path: polygon(0 0, 0 0, 0 0, 0 0);
+ opacity: 0;
+ pointer-events: none;
+}
+//@mark img
+.i-wrap {
+ position: relative;
+ display: flex;
+ width: 100%;
+}
+.i-full {
+ position: absolute;
+ top: 0;
+ left: 0;
+ width: 100%;
+ height: 100%;
+ object-fit: contain;
+ object-position: center;
+}
+.i-sin {
+ display: block;
+ object-fit: contain;
+ object-position: center;
+}
+//@mark sect-gap
+.sect-gap {
+ margin-bottom: 100px;
+}
