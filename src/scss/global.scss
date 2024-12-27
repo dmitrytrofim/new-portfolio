@@ -1,7 +1,7 @@
 //@mark vars css
 :root {
  // font-family
- // --font-: '', sans-serif;
+ --font-opensans: 'Open Sans', serif;
 
  // text colors
  --t-fff: #fff;
@@ -11,10 +11,17 @@
  --b-000: #000;
  --b-000218: #000218;
  --b-060A30: #060a30;
+ --b-89bcff: #89bcff;
+ --b-595b82: #595b82;
  // --b-grad-red: ;
 
  // font-size
  --sz-16: 16px;
+ --sz-20: 20px;
+ --sz-28: 28px;
+ --sz-34: 34px;
+ --sz-42: 42px;
+ --sz-54: 54px;
 }
 
 // @media (prefers-color-scheme: dark) {
@@ -52,12 +59,12 @@
 
 //@mark page
 body.page {
- font-family: var(--);
+ font-family: var(--font-opensans);
  font-weight: 400;
- font-size: var(--);
+ font-size: var(--sz-16);
  line-height: 1.2;
  color: var(--t-fff);
- background-color: var(--);
+ background-color: var(--b-060A30);
  &.j-lock {
   overflow: hidden;
  }

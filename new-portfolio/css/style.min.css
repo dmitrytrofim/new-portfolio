@@ -222,12 +222,20 @@ img {
 }
 
 :root {
+  --font-opensans: "Open Sans", serif;
   --t-fff: #fff;
   --t-000: #000;
   --b-000: #000;
   --b-000218: #000218;
   --b-060A30: #060a30;
+  --b-89bcff: #89bcff;
+  --b-595b82: #595b82;
   --sz-16: 16px;
+  --sz-20: 20px;
+  --sz-28: 28px;
+  --sz-34: 34px;
+  --sz-42: 42px;
+  --sz-54: 54px;
 }
 
 ::-webkit-scrollbar-button {
@@ -257,12 +265,12 @@ img {
 }
 
 body.page {
-  font-family: var(--);
+  font-family: var(--font-opensans);
   font-weight: 400;
-  font-size: var(--);
+  font-size: var(--sz-16);
   line-height: 1.2;
   color: var(--t-fff);
-  background-color: var(--);
+  background-color: var(--b-060A30);
 }
 body.page.j-lock {
   overflow: hidden;
@@ -330,7 +338,7 @@ body.page.j-lock {
   overflow: hidden;
   perspective: 1500px;
   perspective-origin: 50% center;
-  background: url("../img/svg/night.svg") center/cover no-repeat, var(--b-060A30);
+  background: url("../img/svg/night.svg") center/cover no-repeat;
 }
 .box {
   width: 100vw;
@@ -351,6 +359,63 @@ body.page.j-lock {
   background-color: var(--b-000218);
   border-left: 1px solid var(--b-000);
   border-right: 1px solid var(--b-000);
+  padding: 50px 20px;
+}
+@media screen and (max-width: 768px) {
+  .box__side {
+    padding: 100px 20px;
+  }
+}
+
+.front {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  gap: 20px;
+}
+.front__suptitle {
+  font-size: var(--sz-42);
+  font-weight: 600;
+  scale: 2;
+  animation: small-greet 0.5s linear 4s forwards;
+}
+.front__title {
+  font-size: var(--sz-54);
+  font-weight: 700;
+}
+.front__title span {
+  display: inline-flex;
+  opacity: 0;
+}
+.front__title span:nth-child(1) {
+  animation: show-i 0.5s linear 4.5s forwards;
+}
+.front__title span:nth-child(2) {
+  animation: show-name 0.5s linear 5s forwards;
+}
+.front__title span:nth-child(3) {
+  animation: show-name 0.5s linear 5.5s forwards;
+}
+.front__subtitle {
+  font-size: var(--sz-34);
+  opacity: 0;
+  animation: show-post 0.5s linear 6s forwards;
+}
+.front__decor {
+  position: absolute;
+  top: 0;
+  height: 80vh;
+  animation: lightning 4s linear 7.4s forwards;
+  opacity: 0;
+}
+.front__decor.m-left {
+  left: 0;
+}
+.front__decor.m-right {
+  right: 0;
 }
 
 .right {
@@ -367,11 +432,127 @@ body.page.j-lock {
   transform: translateZ(-100vw) rotateY(180deg);
 }
 
+.navigation {
+  position: fixed;
+  left: 0;
+  width: 100%;
+  bottom: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2000;
+  opacity: 0;
+  visibility: hidden;
+  animation: show-nav 1s linear 6.5s forwards;
+}
+.navigation__inner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  background-color: var(--b-000);
+  border: 2px solid var(--b-595b82);
+  padding: 10px 20px 6px;
+  border-radius: 50px;
+}
+.navigation__btn {
+  position: relative;
+}
+.navigation__btn span {
+  position: absolute;
+  left: 50%;
+  top: -35px;
+  white-space: nowrap;
+  transform: translateX(-50%);
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.1s linear 0s;
+}
+.navigation__btn svg {
+  width: 30px;
+  height: 30px;
+}
+.navigation__btn.j-active svg {
+  fill: var(--b-89bcff);
+}
+.navigation__btn:hover svg {
+  fill: var(--b-89bcff);
+}
+.navigation__btn:hover span {
+  opacity: 1;
+}
+
 @keyframes animate-cube {
   0% {
     transform: scale(0) rotateY(-360deg);
   }
   100% {
     transform: scale(1) rotateY(0deg);
+  }
+}
+@keyframes show-nav {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+}
+@keyframes small-greet {
+  0% {
+    scale: 2;
+  }
+  100% {
+    scale: 1;
+  }
+}
+@keyframes show-i {
+  0% {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+@keyframes show-name {
+  0% {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+@keyframes show-post {
+  0% {
+    opacity: 0;
+    transform: translateY(10px) scale(0.8);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+@keyframes lightning {
+  0% {
+    opacity: 0;
+  }
+  3% {
+    opacity: 1;
+  }
+  6% {
+    opacity: 0;
+  }
+  30% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 1;
   }
 }

@@ -17,13 +17,12 @@
   overflow: hidden;
   perspective: 1500px;
   perspective-origin: 50% center;
-  background: url('/src/img/svg/night.svg') center / cover no-repeat,
-   var(--b-060A30);
+  background: url('/src/img/svg/night.svg') center / cover no-repeat;
  }
  &__box {
  }
 }
-
+//@mark box
 .box {
  & {
   width: 100vw;
@@ -44,18 +43,130 @@
   background-color: var(--b-000218);
   border-left: 1px solid var(--b-000);
   border-right: 1px solid var(--b-000);
+  padding: 50px 20px;
+  @media screen and (max-width: 768px) {
+   padding: 100px 20px;
+  }
  }
 }
+//@mark front
 .front {
+ & {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  gap: 20px;
+ }
+ &__suptitle {
+  font-size: var(--sz-42);
+  font-weight: 600;
+  scale: 2;
+  animation: small-greet 0.5s linear 4s forwards;
+ }
+ &__title {
+  font-size: var(--sz-54);
+  font-weight: 700;
+  & span {
+   display: inline-flex;
+   opacity: 0;
+   &:nth-child(1) {
+    animation: show-i 0.5s linear 4.5s forwards;
+   }
+   &:nth-child(2) {
+    animation: show-name 0.5s linear 5s forwards;
+   }
+   &:nth-child(3) {
+    animation: show-name 0.5s linear 5.5s forwards;
+   }
+  }
+ }
+ &__subtitle {
+  font-size: var(--sz-34);
+  opacity: 0;
+  animation: show-post 0.5s linear 6s forwards;
+ }
+ &__decor {
+  position: absolute;
+  top: 0;
+  height: 80vh;
+  animation: lightning 4s linear 7.4s forwards;
+  opacity: 0;
+  &.m-left {
+   left: 0;
+  }
+  &.m-right {
+   right: 0;
+  }
+ }
 }
+//@mark right
 .right {
  transform: rotateY(90deg) translateX(100%);
  transform-origin: top right;
 }
+//@mark left
 .left {
  transform: rotateY(-90deg) translateX(-100%);
  transform-origin: top left;
 }
+//@mark back
 .back {
  transform: translateZ(-100vw) rotateY(180deg);
+}
+//@mark navigation
+.navigation {
+ & {
+  position: fixed;
+  left: 0;
+  width: 100%;
+  bottom: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2000;
+  opacity: 0;
+  visibility: hidden;
+  animation: show-nav 1s linear 6.5s forwards;
+ }
+ &__inner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  background-color: var(--b-000);
+  border: 2px solid var(--b-595b82);
+  padding: 10px 20px 6px;
+  border-radius: 50px;
+ }
+ &__btn {
+  position: relative;
+  & span {
+   position: absolute;
+   left: 50%;
+   top: -35px;
+   white-space: nowrap;
+   transform: translateX(-50%);
+   pointer-events: none;
+   opacity: 0;
+   transition: opacity 0.1s linear 0s;
+  }
+  & svg {
+   width: 30px;
+   height: 30px;
+  }
+  &.j-active svg {
+   fill: var(--b-89bcff);
+  }
+  &:hover {
+   & svg {
+    fill: var(--b-89bcff);
+   }
+   & span {
+    opacity: 1;
+   }
+  }
+ }
 }

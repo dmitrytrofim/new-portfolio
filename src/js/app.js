@@ -9,16 +9,25 @@
 class App {
  constructor() {
   this.page = document.querySelector('.page');
+  this.box = document.querySelector('.box');
+  this.btnsNav = document.querySelectorAll('.navigation__btn');
+ }
+ //@mark turnBox
+ turnBox() {
+  this.btnsNav.forEach((btn) => {
+   btn.addEventListener('click', () => {
+    this.btnsNav.forEach((b) => b.classList.remove('j-active'));
+    btn.classList.add('j-active');
+    this.box.setAttribute(
+     'style',
+     `transform: rotateY(${btn.dataset.turn}deg);`
+    );
+   });
+  });
  }
  //@mark start
- start() {}
+ start() {
+  if (this.box) this.turnBox();
+ }
 }
 const app = new App().start();
-
-const box = document.querySelector('.box');
-
-let turn = 0;
-window.addEventListener('click', () => {
- turn += 90;
- box.setAttribute('style', `transform: rotateY(-${turn}deg);`);
-});
