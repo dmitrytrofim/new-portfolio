@@ -83,10 +83,12 @@ body.page {
 
 //@mark container
 .container {
+ position: relative;
  width: 100%;
  max-width: 1420px;
  display: flex;
  flex-direction: column;
  margin: 0 auto;
  padding: 50px 10px;
+ z-index: 20;
 }

@@ -13,18 +13,38 @@ class App {
   this.page = document.querySelector('.page');
   this.box = document.querySelector('.box');
   this.btnsNav = document.querySelectorAll('.navigation__btn');
-  this.particlesIds = ['tsparticles-main','tsparticles-about', 'tsparticles-skills','tsparticles-portfolio',];
+  this.particlesIds = [
+   'tsparticles-main',
+   'tsparticles-about',
+   'tsparticles-skills',
+   'tsparticles-portfolio',
+  ];
  }
  //@mark turnBox
  turnBox() {
-  this.btnsNav.forEach((btn) => {
+  let curBtn = 0;
+  let block = false;
+  this.btnsNav.forEach((btn, i) => {
    btn.addEventListener('click', () => {
+    if (block) return;
+    let turn = -90 * i;
+    if (curBtn === 0 && i === 3) turn = 90;
+    if (curBtn === 3 && i === 0) turn = -360;
     this.btnsNav.forEach((b) => b.classList.remove('j-active'));
     btn.classList.add('j-active');
     this.box.setAttribute(
      'style',
-     `transform: rotateY(${btn.dataset.turn}deg);`
+     `transform: rotateY(${turn}deg); transition: transform 2s ease-in-out 0s;`
     );
+    block = true;
+    this.box.addEventListener('transitionend', () => {
+     this.box.setAttribute(
+      'style',
+      `transform: rotateY(${-90 * i}deg); transform 0s ease-in-out 0s;`
+     );
+     block = false;
+    });
+    curBtn = i;
    });
   });
  }

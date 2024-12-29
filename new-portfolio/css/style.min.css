@@ -287,12 +287,14 @@ body.page.j-lock {
 }
 
 .container {
+  position: relative;
   width: 100%;
   max-width: 1420px;
   display: flex;
   flex-direction: column;
   margin: 0 auto;
   padding: 50px 10px;
+  z-index: 20;
 }
 
 .v-hide {
@@ -355,8 +357,6 @@ body.page.j-lock {
   position: relative;
   transform-style: preserve-3d;
   transform-origin: 50% 50% -50vw;
-  transition: transform 1.4s linear 0s;
-  transform: rotateY(-90deg);
 }
 .box__side {
   position: absolute;
@@ -373,21 +373,20 @@ body.page.j-lock {
 .front {
   position: relative;
   display: flex;
-  flex-direction: column;
-  justify-content: center;
   align-items: center;
   text-align: center;
-  gap: 1vw;
 }
 .front__suptitle {
   font-size: 3vw;
   font-weight: 600;
   scale: 2;
   animation: small-greet 0.5s linear 4s forwards;
+  margin-bottom: 1vw;
 }
 .front__title {
   font-size: 4vw;
   font-weight: 700;
+  margin-bottom: 1vw;
 }
 .front__title span {
   display: inline-flex;
@@ -470,7 +469,7 @@ body.page.j-lock {
   z-index: 2000;
   opacity: 0;
   visibility: hidden;
-  animation: show-nav 1s linear 6.5s forwards;
+  animation: show-nav 1s linear 0s forwards;
 }
 .navigation__inner {
   display: flex;

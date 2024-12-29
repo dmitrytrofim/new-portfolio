@@ -30,8 +30,8 @@
   position: relative;
   transform-style: preserve-3d;
   transform-origin: 50% 50% -50vw;
-  transition: transform 1.4s linear 0s;
-  transform: rotateY(-90deg);
+  // transition: transform 1.4s ease-in-out 0s;
+  // transform: rotateY(-90deg);
   // animation: 4s ease-in-out 0s 1 normal backwards running animate-cube;
  }
  &__side {
@@ -51,21 +51,20 @@
  & {
   position: relative;
   display: flex;
-  flex-direction: column;
-  justify-content: center;
   align-items: center;
   text-align: center;
-  gap: 1vw;
  }
  &__suptitle {
   font-size: 3vw;
   font-weight: 600;
   scale: 2;
   animation: small-greet 0.5s linear 4s forwards;
+  margin-bottom: 1vw;
  }
  &__title {
   font-size: 4vw;
   font-weight: 700;
+  margin-bottom: 1vw;
   & span {
    display: inline-flex;
    opacity: 0;
@@ -155,8 +154,8 @@
   z-index: 2000;
   opacity: 0;
   visibility: hidden;
-  // animation: show-nav 1s linear 0s forwards;
-  animation: show-nav 1s linear 6.5s forwards;
+  animation: show-nav 1s linear 0s forwards;
+  // animation: show-nav 1s linear 6.5s forwards;
  }
  &__inner {
   display: flex;
