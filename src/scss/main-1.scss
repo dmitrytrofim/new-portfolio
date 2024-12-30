@@ -18,6 +18,7 @@
   perspective: 1500px;
   perspective-origin: 50% center;
   background: url('/src/img/svg/night.svg') center / cover no-repeat;
+  pointer-events: none;
  }
  &__box {
  }
@@ -30,8 +31,7 @@
   position: relative;
   transform-style: preserve-3d;
   transform-origin: 50% 50% -50vw;
-  // transition: transform 1.4s ease-in-out 0s;
-  // transform: rotateY(-90deg);
+  // transform: rotateY(-180deg);
   // animation: 4s ease-in-out 0s 1 normal backwards running animate-cube;
  }
  &__side {
@@ -44,6 +44,15 @@
   background-color: var(--b-000218);
   border-left: 1px solid var(--b-000);
   border-right: 1px solid var(--b-000);
+ }
+ &__side-inner {
+  height: 100%;
+  width: 100%;
+  pointer-events: auto;
+  overflow-y: auto;
+  & .container {
+   padding-bottom: 150px;
+  }
  }
 }
 //@mark front
@@ -140,6 +149,71 @@
 //@mark back
 .back {
  transform: translateZ(-100vw) rotateY(180deg);
+ &__title {
+  margin-bottom: 30px;
+ }
+ &__skills {
+ }
+}
+//@mark skills
+.skills {
+ & {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 50px 10px;
+  @media screen and (max-width: 992px) {
+   grid-template-columns: repeat(2, 1fr);
+  }
+  @media screen and (max-width: 576px) {
+   grid-template-columns: 1fr;
+  }
+ }
+ &__card {
+  color: var(--color-tx-white);
+ }
+ &__card-title {
+  font-size: var(--sz-24);
+  font-weight: 500;
+  text-align: center;
+  margin-bottom: 20px;
+ }
+ &__card-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+ }
+ &__card-item {
+  position: relative;
+  font-size: var(--sz-18);
+  text-shadow: 1px 1px 1px #000;
+  padding-left: 25px;
+  &::after {
+   position: absolute;
+   content: '';
+   left: 0;
+   top: calc(50% - 6px);
+   width: 12px;
+   height: 12px;
+   background: url('/src/img/svg/sprite.svg#triangle') center / contain
+    no-repeat;
+  }
+  &.j-anim {
+   &::after {
+    opacity: 1;
+    transform: translateX(0);
+   }
+  }
+ }
+ &__bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+  object-position: center;
+  z-index: -1;
+ }
 }
 //@mark navigation
 .navigation {
@@ -155,6 +229,7 @@
   opacity: 0;
   visibility: hidden;
   animation: show-nav 1s linear 0s forwards;
+  pointer-events: auto;
   // animation: show-nav 1s linear 6.5s forwards;
  }
  &__inner {
@@ -170,14 +245,19 @@
  &__btn {
   position: relative;
   & span {
+   display: inline-flex;
    position: absolute;
    left: 50%;
-   top: -35px;
+   top: -40px;
    white-space: nowrap;
    transform: translateX(-50%);
    pointer-events: none;
    opacity: 0;
    transition: opacity 0.1s linear 0s;
+   background-color: var(--b-000);
+   padding: 3px 8px;
+   border: 1px solid var(--b-595b82);
+   border-radius: 20px;
   }
   & svg {
    width: 30px;

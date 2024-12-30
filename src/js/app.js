@@ -53,7 +53,6 @@ class App {
   this.particlesIds.forEach((id) => {
    (async () => {
     await loadStarsPreset(tsParticles);
-
     await tsParticles.load({
      id: id,
      options: {

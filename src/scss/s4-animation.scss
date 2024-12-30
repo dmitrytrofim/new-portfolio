@@ -65,16 +65,19 @@
  0% {
   opacity: 0;
  }
- 3% {
+ 2% {
   opacity: 1;
  }
- 6% {
+ 4% {
   opacity: 0;
  }
- 20% {
+ 10% {
   opacity: 1;
  }
+ 18% {
+  opacity: 0;
+ }
  100% {
-  opacity: 1;
+  opacity: 0;
  }
 }
