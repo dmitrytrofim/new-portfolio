@@ -352,7 +352,6 @@ body.page.j-lock {
   perspective: 1500px;
   perspective-origin: 50% center;
   background: url("../img/svg/night.svg") center/cover no-repeat;
-  pointer-events: none;
 }
 .box {
   width: 100vw;
@@ -361,6 +360,7 @@ body.page.j-lock {
   transform-style: preserve-3d;
   transform-origin: 50% 50% -50vw;
   animation: 4s ease-in-out 0s 1 normal backwards running animate-cube;
+  pointer-events: none;
 }
 .box__side {
   position: absolute;
@@ -376,8 +376,11 @@ body.page.j-lock {
 .box__side-inner {
   height: 100%;
   width: 100%;
-  pointer-events: auto;
+  pointer-events: none;
   overflow-y: auto;
+}
+.box__side-inner.j-scroll {
+  pointer-events: auto;
 }
 .box__side-inner .container {
   padding-bottom: 150px;
@@ -387,7 +390,9 @@ body.page.j-lock {
   position: relative;
   display: flex;
   align-items: center;
+  justify-content: center;
   text-align: center;
+  white-space: nowrap;
 }
 .front__suptitle {
   font-size: 3vw;
@@ -423,7 +428,7 @@ body.page.j-lock {
   position: absolute;
   top: 0;
   height: 80vh;
-  animation: lightning 4s linear 7.4s forwards;
+  animation: lightning 4s linear 8s forwards;
   opacity: 0;
   z-index: 20;
 }
@@ -454,11 +459,11 @@ body.page.j-lock {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 50px;
+  gap: 30px;
 }
 .right__link {
-  width: 100px;
-  height: 100px;
+  width: 70px;
+  height: 70px;
   border-radius: 50%;
   overflow: hidden;
 }
@@ -527,7 +532,7 @@ body.page.j-lock {
 }
 .portfolio__box {
   display: none;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   align-content: flex-start;
   gap: 50px 30px;
 }
@@ -662,10 +667,14 @@ body.page.j-lock {
   opacity: 0;
   visibility: hidden;
   animation: show-nav 1s linear 0s forwards;
-  pointer-events: auto;
+  pointer-events: none;
   animation: show-nav 1s linear 6.5s forwards;
 }
+.navigation.j-keys .navigation__keys {
+  opacity: 1;
+}
 .navigation__inner {
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -674,6 +683,15 @@ body.page.j-lock {
   border: 2px solid var(--b-595b82);
   padding: 10px 20px 6px;
   border-radius: 50px;
+  pointer-events: auto;
+}
+.navigation__keys {
+  position: absolute;
+  left: 50%;
+  bottom: -24px;
+  transform: translateX(-50%);
+  opacity: 0;
+  transition: opacity 0.5s linear 0s;
 }
 .navigation__btn {
   position: relative;

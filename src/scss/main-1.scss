@@ -19,7 +19,6 @@
   perspective: 1500px;
   perspective-origin: 50% center;
   background: url('/src/img/svg/night.svg') center / cover no-repeat;
-  pointer-events: none;
  }
  &__box {
  }
@@ -34,6 +33,7 @@
   transform-origin: 50% 50% -50vw;
   // transform: rotateY(-180deg);
   animation: 4s ease-in-out 0s 1 normal backwards running animate-cube;
+  pointer-events: none;
  }
  &__side {
   position: absolute;
@@ -49,8 +49,11 @@
  &__side-inner {
   height: 100%;
   width: 100%;
-  pointer-events: auto;
+  pointer-events: none;
   overflow-y: auto;
+  &.j-scroll {
+   pointer-events: auto;
+  }
   & .container {
    padding-bottom: 150px;
   }
@@ -62,7 +65,9 @@
   position: relative;
   display: flex;
   align-items: center;
+  justify-content: center;
   text-align: center;
+  white-space: nowrap;
  }
  &__suptitle {
   font-size: 3vw;
@@ -98,7 +103,7 @@
   position: absolute;
   top: 0;
   height: 80vh;
-  animation: lightning 4s linear 7.4s forwards;
+  animation: lightning 4s linear 8s forwards;
   opacity: 0;
   z-index: 20;
   &.m-left {
@@ -131,11 +136,11 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 50px;
+  gap: 30px;
  }
  &__link {
-  width: 100px;
-  height: 100px;
+  width: 70px;
+  height: 70px;
   border-radius: 50%;
   overflow: hidden;
  }
@@ -215,7 +220,7 @@
  }
  &__box {
   display: none;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   align-content: flex-start;
   gap: 50px 30px;
   &.j-show {
@@ -354,10 +359,14 @@
   opacity: 0;
   visibility: hidden;
   animation: show-nav 1s linear 0s forwards;
-  pointer-events: auto;
+  pointer-events: none;
   animation: show-nav 1s linear 6.5s forwards;
+  &.j-keys .navigation__keys {
+   opacity: 1;
+  }
  }
  &__inner {
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -366,6 +375,15 @@
   border: 2px solid var(--b-595b82);
   padding: 10px 20px 6px;
   border-radius: 50px;
+  pointer-events: auto;
+ }
+ &__keys {
+  position: absolute;
+  left: 50%;
+  bottom: -24px;
+  transform: translateX(-50%);
+  opacity: 0;
+  transition: opacity 0.5s linear 0s;
  }
  &__btn {
   position: relative;

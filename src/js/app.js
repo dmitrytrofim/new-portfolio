@@ -12,6 +12,7 @@ class App {
  constructor() {
   this.page = document.querySelector('.page');
   this.box = document.querySelector('.box');
+  this.navPanel = document.querySelector('.navigation');
   this.btnsNav = document.querySelectorAll('.navigation__btn');
   this.particlesIds = [
    'tsparticles-main',
@@ -19,6 +20,7 @@ class App {
    'tsparticles-skills',
    'tsparticles-portfolio',
   ];
+  this.sidesInner = document.querySelectorAll('.box__side-inner');
   this.tabs = {
    btns: document.querySelectorAll('[data-tabs-btn]'),
    boxes: document.querySelectorAll('[data-tabs-box]'),
@@ -31,6 +33,13 @@ class App {
   this.btnsNav.forEach((btn, i) => {
    btn.addEventListener('click', () => {
     if (block) return;
+    this.sidesInner.forEach((inner) => {
+     if (inner.dataset.side === btn.dataset.nav) {
+      inner.classList.add('j-scroll');
+     } else {
+      inner.classList.remove('j-scroll');
+     }
+    });
     let turn = -90 * i;
     if (curBtn === 0 && i === 3) turn = 90;
     if (curBtn === 3 && i === 0) turn = -360;
@@ -43,6 +52,7 @@ class App {
     block = true;
     this.box.addEventListener('transitionend', (e) => {
      if (e.target === this.box) {
+      this.sidesInner.forEach((inner) => (inner.scrollTop = 0));
       this.box.setAttribute(
        'style',
        `transform: rotateY(${-90 * i}deg); transform 0s ease-in-out 0s;`
@@ -52,6 +62,24 @@ class App {
     });
     curBtn = i;
    });
+  });
+
+  let blockKeysNav = true;
+  this.navPanel.addEventListener('animationend', () => {
+   blockKeysNav = false;
+   this.navPanel.classList.add('j-keys');
+  });
+
+  window.addEventListener('keydown', (e) => {
+   if (blockKeysNav) return;
+   let nextSide = curBtn >= 3 ? 0 : curBtn + 1;
+   let prevSide = curBtn <= 0 ? 3 : curBtn - 1;
+   if (e.key === 'ArrowRight') {
+    this.btnsNav[nextSide].click();
+   }
+   if (e.key === 'ArrowLeft') {
+    this.btnsNav[prevSide].click();
+   }
   });
  }
  //@mark initParticles
