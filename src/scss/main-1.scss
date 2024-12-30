@@ -1,3 +1,4 @@
+@use './sass-tools/functions.scss' as f;
 //@mark page
 .page {
  &__header {
@@ -32,7 +33,7 @@
   transform-style: preserve-3d;
   transform-origin: 50% 50% -50vw;
   // transform: rotateY(-180deg);
-  // animation: 4s ease-in-out 0s 1 normal backwards running animate-cube;
+  animation: 4s ease-in-out 0s 1 normal backwards running animate-cube;
  }
  &__side {
   position: absolute;
@@ -145,6 +146,130 @@
 .left {
  transform: rotateY(-90deg) translateX(-100%);
  transform-origin: top left;
+ &__title {
+  margin-bottom: 30px;
+ }
+ &__portfolio {
+ }
+}
+.portfolio {
+ & {
+ }
+ &__btns {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(50px, 200px));
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 40px;
+  @media screen and (max-width: 768px) {
+   grid-template-columns: repeat(2, minmax(50px, 200px));
+  }
+ }
+ &__btn {
+  position: relative;
+  padding: 10px;
+  display: inline-block;
+  border-radius: 10rem;
+  color: var(--color-tx-white);
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 1rem;
+  letter-spacing: 0.15rem;
+  transition: all 0.3s;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+  &:after {
+   content: '';
+   position: absolute;
+   bottom: 0;
+   left: 0;
+   width: 100%;
+   height: 100%;
+   background-color: #294f74;
+   border-radius: 10rem;
+   z-index: -2;
+  }
+  &:before {
+   content: '';
+   position: absolute;
+   bottom: 0;
+   left: 0;
+   width: 100%;
+   height: 0%;
+   background-color: #152a3d;
+   transition: all 0.3s;
+   border-radius: 10rem;
+   z-index: -1;
+  }
+  &:hover {
+   &:before {
+    height: 100%;
+   }
+  }
+  &.j-active {
+   &:before {
+    height: 100%;
+   }
+  }
+ }
+ &__box {
+  display: none;
+  grid-template-columns: repeat(3, 1fr);
+  align-content: flex-start;
+  gap: 50px 30px;
+  &.j-show {
+   display: grid !important;
+  }
+  @media screen and (max-width: 1200px) {
+   grid-template-columns: repeat(2, 1fr);
+  }
+  @media screen and (max-width: 768px) {
+   grid-template-columns: 1fr;
+  }
+ }
+ &__card {
+  display: flex;
+  flex-direction: column;
+  opacity: 0;
+  transform: scale(0.5);
+  transition: opacity 0.5s linear 0s, transform 0.5s linear 0s;
+  &:hover {
+   & .portfolio__card-visual {
+    transform: scale(1.01);
+    box-shadow: 0 3px 5px 3px var(--b-000218);
+   }
+   & .portfolio__card-name {
+    text-shadow: 1px 0px 1px #000;
+   }
+  }
+  &.j-anim {
+   opacity: 1;
+   transform: scale(1);
+  }
+ }
+ &__card-visual {
+  width: 100%;
+  aspect-ratio: f.asprat(300, 200);
+  overflow: hidden;
+  border-radius: 20px;
+  margin-bottom: 10px;
+  box-shadow: 0 1px 1px 1px var(--b-000218);
+  transition: transform 0.3s linear, box-shadow 0.3s linear;
+ }
+ &__card-img {
+  object-fit: cover;
+  &.m-todo {
+   object-position: top center;
+  }
+ }
+ &__card-name {
+  font-size: var(--sz-20);
+  text-align: center;
+  font-weight: 500;
+  transition: text-shadow 0.3s linear 0s;
+  padding: 0 20px;
+ }
 }
 //@mark back
 .back {
@@ -230,7 +355,7 @@
   visibility: hidden;
   animation: show-nav 1s linear 0s forwards;
   pointer-events: auto;
-  // animation: show-nav 1s linear 6.5s forwards;
+  animation: show-nav 1s linear 6.5s forwards;
  }
  &__inner {
   display: flex;
