@@ -362,7 +362,7 @@ body.page.j-lock {
   position: relative;
   transform-style: preserve-3d;
   transform-origin: 50% 50% -50vw;
-  animation: 4s ease-in-out 0s 1 normal backwards running animate-cube;
+  animation: 4s ease-in-out 0.5s 1 normal backwards running animate-cube;
   pointer-events: none;
 }
 .box__side {
@@ -410,7 +410,7 @@ body.page.j-lock {
 @media screen and (min-width: 641px) {
   .front__suptitle {
     scale: 2;
-    animation: small-greet 0.5s linear 4s forwards;
+    animation: small-greet 0.5s linear 4.5s forwards;
   }
 }
 @media screen and (max-width: 1024px) {
@@ -423,7 +423,7 @@ body.page.j-lock {
     font-size: 8vw;
     margin-bottom: 3vw;
     scale: 1.3;
-    animation: small-greet-mob 0.5s linear 4s forwards;
+    animation: small-greet-mob 0.5s linear 4.5s forwards;
   }
 }
 .front__title {
@@ -436,13 +436,13 @@ body.page.j-lock {
   opacity: 0;
 }
 .front__title span:nth-child(1) {
-  animation: show-i 0.5s linear 4.5s forwards;
+  animation: show-i 0.5s linear 5s forwards;
 }
 .front__title span:nth-child(2) {
-  animation: show-name 0.5s linear 5s forwards;
+  animation: show-name 0.5s linear 5.5s forwards;
 }
 .front__title span:nth-child(3) {
-  animation: show-name 0.5s linear 5.5s forwards;
+  animation: show-name 0.5s linear 6s forwards;
 }
 @media screen and (max-width: 1024px) {
   .front__title {
@@ -464,7 +464,7 @@ body.page.j-lock {
 .front__subtitle {
   font-size: 2.5vw;
   opacity: 0;
-  animation: show-post 0.5s linear 6s forwards;
+  animation: show-post 0.5s linear 6.5s forwards;
 }
 @media screen and (max-width: 1024px) {
   .front__subtitle {
@@ -480,7 +480,7 @@ body.page.j-lock {
   position: absolute;
   top: 0;
   height: 80vh;
-  animation: lightning 4s linear 8s forwards;
+  animation: lightning 4s linear 8.5s forwards;
   opacity: 0;
   z-index: 20;
 }
@@ -784,9 +784,8 @@ body.page.j-lock {
   z-index: 2000;
   opacity: 0;
   visibility: hidden;
-  animation: show-nav 1s linear 0s forwards;
   pointer-events: none;
-  animation: show-nav 1s linear 6.5s forwards;
+  animation: show-nav 1s linear 7s forwards;
 }
 .navigation.j-keys .navigation__keys {
   opacity: 1;
