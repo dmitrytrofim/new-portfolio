@@ -39,4 +39,7 @@
  text-transform: uppercase;
  font-size: var(--sz-34);
  text-align: center;
+ & span {
+  display: inline-flex;
+ }
 }

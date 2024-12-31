@@ -31,8 +31,8 @@
   position: relative;
   transform-style: preserve-3d;
   transform-origin: 50% 50% -50vw;
-  // transform: rotateY(-180deg);
-  animation: 4s ease-in-out 0s 1 normal backwards running animate-cube;
+  transform: rotateY(-90deg);
+  // animation: 4s ease-in-out 0s 1 normal backwards running animate-cube;
   pointer-events: none;
  }
  &__side {
@@ -139,12 +139,18 @@
   gap: 30px;
  }
  &__link {
-  width: 70px;
-  height: 70px;
+  width: 80px;
+  height: 80px;
   border-radius: 50%;
   overflow: hidden;
+  border: 5px solid var(--b-595b82);
+  transition: scale 0.2s linear 0s;
+  &:hover {
+   scale: 1.1;
+  }
  }
  &__link-img {
+  scale: 1.05;
  }
 }
 //@mark left
@@ -310,6 +316,7 @@
  &__card-list {
   display: flex;
   flex-direction: column;
+  align-items: flex-start;
   gap: 10px;
  }
  &__card-item {
@@ -317,6 +324,7 @@
   font-size: var(--sz-18);
   text-shadow: 1px 1px 1px #000;
   padding-left: 25px;
+  cursor: pointer;
   &::after {
    position: absolute;
    content: '';
@@ -324,8 +332,34 @@
    top: calc(50% - 6px);
    width: 12px;
    height: 12px;
-   background: url('/src/img/svg/sprite.svg#triangle') center / contain
-    no-repeat;
+   mask-image: url('/src/img/svg/sprite.svg#triangle');
+   -webkit-mask-image: url('/src/img/svg/sprite.svg#triangle');
+   mask-repeat: no-repeat;
+   -webkit-mask-repeat: no-repeat;
+   mask-size: contain;
+   -webkit-mask-size: contain;
+   mask-position: center;
+   -webkit-mask-position: center;
+   background-color: var(--b-fff);
+   transition: background-color 0.2s linear 0s;
+  }
+  &::before {
+   position: absolute;
+   content: '';
+   left: 25px;
+   bottom: -6px;
+   height: 2px;
+   width: 0;
+   background-color: var(--b-fff);
+   transition: width 0.2s linear 0s;
+  }
+  &:hover {
+   &::after {
+    background-color: var(--b-89bcff);
+   }
+   &::before {
+    width: calc(100% - 25px);
+   }
   }
   &.j-anim {
    &::after {

@@ -25,6 +25,7 @@ class App {
    btns: document.querySelectorAll('[data-tabs-btn]'),
    boxes: document.querySelectorAll('[data-tabs-box]'),
   };
+  this.titles = document.querySelectorAll('.title');
  }
  //@mark turnBox
  turnBox() {
@@ -125,10 +126,24 @@ class App {
    });
   });
  }
+ //@mark animeTitle
+ animeTitle() {
+  this.titles.forEach((msg) => {
+   msg.innerHTML = msg.textContent.replace(/(\S)/g, '<span>$1</span>');
+   const letters = msg.querySelectorAll('span');
+   letters.forEach((lt, i) => {
+    lt.setAttribute(
+     'style',
+     `animation: anime-title 6s linear ${i / 4}s infinite;`
+    );
+   });
+  });
+ }
  //@mark start
  start() {
   if (this.box) this.turnBox();
   if (this.tabs.btns[0]) this.switch();
+  if (this.titles[0]) this.animeTitle();
   this.initParticles();
  }
 }
