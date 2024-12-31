@@ -33,6 +33,7 @@ class App {
   let block = false;
   this.btnsNav.forEach((btn, i) => {
    btn.addEventListener('click', () => {
+    if (curBtn === i) return;
     if (block) return;
     this.sidesInner.forEach((inner) => {
      if (inner.dataset.side === btn.dataset.nav) {

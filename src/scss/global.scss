@@ -38,12 +38,12 @@
  height: 0;
 }
 ::-webkit-scrollbar-track {
- background-color: var(--b-fff);
- box-shadow: 0 0 3px var(--b-fff) inset;
+ background-color: var(--b-000218);
+ box-shadow: 0 0 3px var(--b-000218) inset;
 }
 ::-webkit-scrollbar-thumb {
  border-radius: 2px;
- background-color: var(--b-000);
+ background-color: var(--b-fff);
  background-position: center;
  background-repeat: no-repeat;
 }
