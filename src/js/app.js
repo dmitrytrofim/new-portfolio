@@ -59,6 +59,20 @@ class App {
        'style',
        `transform: rotateY(${-90 * i}deg); transform 0s ease-in-out 0s;`
       );
+      this.titles.forEach((ttl) => {
+       ttl.querySelectorAll('span').forEach((sp) => {
+        sp.setAttribute('style', '');
+       });
+      });
+      if (this.titles[i - 1]) {
+       const letters = this.titles[i - 1].querySelectorAll('span');
+       letters.forEach((lt, idx) => {
+        lt.setAttribute(
+         'style',
+         `animation: anime-title 6s linear ${idx / 4}s infinite;`
+        );
+       });
+      }
       block = false;
      }
     });
@@ -131,13 +145,6 @@ class App {
  animeTitle() {
   this.titles.forEach((msg) => {
    msg.innerHTML = msg.textContent.replace(/(\S)/g, '<span>$1</span>');
-   const letters = msg.querySelectorAll('span');
-   letters.forEach((lt, i) => {
-    lt.setAttribute(
-     'style',
-     `animation: anime-title 6s linear ${i / 4}s infinite;`
-    );
-   });
   });
  }
  //@mark start

@@ -183,7 +183,7 @@
   height: 80px;
   border-radius: 50%;
   overflow: hidden;
-  border: 5px solid var(--b-595b82);
+  border: 5px solid var(--b-fff);
   transition: scale 0.2s linear 0s;
   @media screen and (min-width: 1024px) {
    &:hover {
@@ -367,7 +367,6 @@
  &__card-list {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
   gap: 10px;
  }
  &__card-item {
@@ -394,23 +393,10 @@
    background-color: var(--b-fff);
    transition: background-color 0.2s linear 0s;
   }
-  &::before {
-   position: absolute;
-   content: '';
-   left: 25px;
-   bottom: -6px;
-   height: 2px;
-   width: 0;
-   background-color: var(--b-fff);
-   transition: width 0.2s linear 0s;
-  }
-  @media screen and (min-width: 1024px) {
+  @media screen and (min-width: 1360px) {
    &:hover {
     &::after {
      background-color: var(--b-89bcff);
-    }
-    &::before {
-     width: calc(100% - 25px);
     }
    }
    &.j-anim {
