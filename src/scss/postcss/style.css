@@ -529,7 +529,7 @@ body.page.j-lock {
   height: 80px;
   border-radius: 50%;
   overflow: hidden;
-  border: 5px solid var(--b-595b82);
+  border: 5px solid var(--b-fff);
   transition: scale 0.2s linear 0s;
 }
 @media screen and (min-width: 1024px) {
@@ -712,7 +712,6 @@ body.page.j-lock {
 .skills__card-list {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
   gap: 10px;
 }
 .skills__card-item {
@@ -740,26 +739,9 @@ body.page.j-lock {
   background-color: var(--b-fff);
   transition: background-color 0.2s linear 0s;
 }
-.skills__card-item::before {
-  position: absolute;
-  content: "";
-  left: 25px;
-  bottom: -6px;
-  height: 2px;
-  width: 0;
-  background-color: var(--b-fff);
-  transition: width 0.2s linear 0s;
-}
 @media screen and (min-width: 1360px) {
   .skills__card-item:hover::after {
     background-color: var(--b-89bcff);
-  }
-  .skills__card-item:hover::before {
-    width: calc(100% - 25px);
-  }
-  .skills__card-item.j-anim::after {
-    opacity: 1;
-    transform: translateX(0);
   }
 }
 .skills__bg {

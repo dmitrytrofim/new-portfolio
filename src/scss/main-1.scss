@@ -399,12 +399,6 @@
      background-color: var(--b-89bcff);
     }
    }
-   &.j-anim {
-    &::after {
-     opacity: 1;
-     transform: translateX(0);
-    }
-   }
   }
  }
  &__bg {
