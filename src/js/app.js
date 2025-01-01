@@ -26,6 +26,7 @@ class App {
    boxes: document.querySelectorAll('[data-tabs-box]'),
   };
   this.titles = document.querySelectorAll('.title');
+  this.preloader = document.querySelector('.preloader');
  }
  //@mark turnBox
  turnBox() {
@@ -149,10 +150,15 @@ class App {
  }
  //@mark start
  start() {
-  if (this.box) this.turnBox();
-  if (this.tabs.btns[0]) this.switch();
-  if (this.titles[0]) this.animeTitle();
-  this.initParticles();
+  window.addEventListener('load', () => {
+   if (this.box) this.turnBox();
+   if (this.tabs.btns[0]) this.switch();
+   if (this.titles[0]) this.animeTitle();
+   this.initParticles();
+   this.preloader.classList.add('j-hide');
+   this.box.classList.add('j-anime');
+   this.navPanel.classList.add('j-anime');
+  });
  }
 }
 const app = new App().start();
