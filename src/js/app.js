@@ -70,7 +70,7 @@ class App {
        letters.forEach((lt, idx) => {
         lt.setAttribute(
          'style',
-         `animation: anime-title 6s linear ${idx / 4}s infinite;`
+         `animation: anime-title 6s linear ${idx / 4}s;`
         );
        });
       }
