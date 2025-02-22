@@ -531,28 +531,6 @@ body.page.j-lock {
     margin-bottom: 60px;
   }
 }
-.right__links {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 30px;
-}
-.right__link {
-  width: 80px;
-  height: 80px;
-  border-radius: 50%;
-  overflow: hidden;
-  border: 5px solid var(--b-fff);
-  transition: scale 0.2s linear 0s;
-}
-@media screen and (min-width: 1024px) {
-  .right__link:hover {
-    scale: 1.1;
-  }
-}
-.right__link-img {
-  scale: 1.05;
-}
 
 .left {
   transform: rotateY(-90deg) translateX(-100%);

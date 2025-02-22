@@ -175,36 +175,14 @@
  }
  &__text {
   align-self: center;
-  font-size: var(--sz-24);
+  font-size: var(--sz-30);
   text-align: center;
-  line-height: 1.8;
+  line-height: 2;
   margin-bottom: 80px;
   @media screen and (max-width: 640px) {
-   --sz-24: 20px;
+   --sz-30: 20px;
    margin-bottom: 60px;
   }
- }
- &__links {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 30px;
- }
- &__link {
-  width: 80px;
-  height: 80px;
-  border-radius: 50%;
-  overflow: hidden;
-  border: 5px solid var(--b-fff);
-  transition: scale 0.2s linear 0s;
-  @media screen and (min-width: 1024px) {
-   &:hover {
-    scale: 1.1;
-   }
-  }
- }
- &__link-img {
-  scale: 1.05;
  }
 }
 //@mark left
@@ -371,10 +349,13 @@
   color: var(--color-tx-white);
  }
  &__card-title {
-  font-size: var(--sz-24);
+  font-size: var(--sz-28);
   font-weight: 500;
   text-align: center;
   margin-bottom: 20px;
+  @media screen and (max-width: 640px) {
+   --sz-28: 24px;
+  }
  }
  &__card-list {
   display: flex;
@@ -383,7 +364,7 @@
  }
  &__card-item {
   position: relative;
-  font-size: var(--sz-20);
+  font-size: var(--sz-24);
   text-shadow: 1px 1px 1px #000;
   padding-left: 25px;
   cursor: pointer;
@@ -411,6 +392,9 @@
      background-color: var(--b-89bcff);
     }
    }
+  }
+  @media screen and (max-width: 640px) {
+   --sz-24: 20px;
   }
  }
  &__bg {
