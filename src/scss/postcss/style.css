@@ -236,6 +236,7 @@ img {
   --sz-20: 20px;
   --sz-24: 24px;
   --sz-28: 28px;
+  --sz-30: 30px;
   --sz-34: 34px;
   --sz-42: 42px;
   --sz-54: 54px;
@@ -520,14 +521,14 @@ body.page.j-lock {
 }
 .right__text {
   align-self: center;
-  font-size: var(--sz-24);
+  font-size: var(--sz-30);
   text-align: center;
-  line-height: 1.8;
+  line-height: 2;
   margin-bottom: 80px;
 }
 @media screen and (max-width: 640px) {
   .right__text {
-    --sz-24: 20px;
+    --sz-30: 20px;
     margin-bottom: 60px;
   }
 }
@@ -540,8 +541,7 @@ body.page.j-lock {
   margin-bottom: 30px;
 }
 .portfolio__btns {
-  display: grid;
-  grid-template-columns: repeat(4, minmax(50px, 200px));
+  display: flex;
   justify-content: center;
   gap: 10px;
   margin-bottom: 40px;
@@ -552,6 +552,8 @@ body.page.j-lock {
   }
 }
 .portfolio__btn {
+  width: 100%;
+  max-width: 300px;
   position: relative;
   padding: 10px;
   display: inline-block;
@@ -695,10 +697,15 @@ body.page.j-lock {
   color: var(--color-tx-white);
 }
 .skills__card-title {
-  font-size: var(--sz-24);
+  font-size: var(--sz-28);
   font-weight: 500;
   text-align: center;
   margin-bottom: 20px;
+}
+@media screen and (max-width: 640px) {
+  .skills__card-title {
+    --sz-28: 24px;
+  }
 }
 .skills__card-list {
   display: flex;
@@ -707,7 +714,7 @@ body.page.j-lock {
 }
 .skills__card-item {
   position: relative;
-  font-size: var(--sz-20);
+  font-size: var(--sz-24);
   text-shadow: 1px 1px 1px #000;
   padding-left: 25px;
   cursor: pointer;
@@ -733,6 +740,11 @@ body.page.j-lock {
 @media screen and (min-width: 1360px) {
   .skills__card-item:hover::after {
     background-color: var(--b-89bcff);
+  }
+}
+@media screen and (max-width: 640px) {
+  .skills__card-item {
+    --sz-24: 20px;
   }
 }
 .skills__bg {
@@ -793,7 +805,7 @@ body.page.j-lock {
   bottom: -24px;
   transform: translateX(-50%);
   opacity: 0;
-  transition: opacity 0.5s linear 0s;
+  transition: opacity 0.4s linear 0s;
   pointer-events: none;
 }
 @media screen and (max-width: 1024px) {

@@ -199,8 +199,7 @@
  & {
  }
  &__btns {
-  display: grid;
-  grid-template-columns: repeat(4, minmax(50px, 200px));
+  display: flex;
   justify-content: center;
   gap: 10px;
   margin-bottom: 40px;
@@ -209,6 +208,8 @@
   }
  }
  &__btn {
+  width: 100%;
+  max-width: 300px;
   position: relative;
   padding: 10px;
   display: inline-block;
@@ -453,7 +454,7 @@
   bottom: -24px;
   transform: translateX(-50%);
   opacity: 0;
-  transition: opacity 0.5s linear 0s;
+  transition: opacity 0.4s linear 0s;
   pointer-events: none;
   @media screen and (max-width: 1024px) {
    display: none;
