@@ -393,6 +393,12 @@ body.page.j-lock {
 .box.j-anime .front__decor {
   animation: lightning 4s linear 9s forwards;
 }
+.box .box__side > div {
+  scrollbar-gutter: stable;
+}
+.box.j-overflow .box__side > div {
+  overflow: hidden;
+}
 .box__side {
   position: absolute;
   left: 0;

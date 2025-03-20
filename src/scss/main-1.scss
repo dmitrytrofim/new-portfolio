@@ -60,6 +60,12 @@
     animation: lightning 4s linear 9s forwards;
    }
   }
+  & .box__side > div {
+   scrollbar-gutter: stable;
+  }
+  &.j-overflow .box__side > div {
+   overflow: hidden;
+  }
  }
  &__side {
   position: absolute;

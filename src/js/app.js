@@ -34,6 +34,7 @@ class App {
   let block = false;
   this.btnsNav.forEach((btn, i) => {
    btn.addEventListener('click', () => {
+    this.box.classList.add('j-overflow');
     if (curBtn === i) return;
     if (block) return;
     this.sidesInner.forEach((inner) => {
@@ -54,6 +55,7 @@ class App {
     );
     block = true;
     this.box.addEventListener('transitionend', (e) => {
+     this.box.classList.remove('j-overflow');
      if (e.target === this.box) {
       this.sidesInner.forEach((inner) => (inner.scrollTop = 0));
       this.box.setAttribute(
