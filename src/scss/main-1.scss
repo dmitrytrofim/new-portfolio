@@ -102,6 +102,9 @@
   justify-content: center;
   text-align: center;
   white-space: nowrap;
+  & > div {
+   scrollbar-gutter: auto !important;
+  }
  }
  &__suptitle {
   font-size: 3vw;
@@ -289,11 +292,10 @@
   transition: opacity 0.5s linear 0s, transform 0.5s linear 0s;
   &:hover {
    & .portfolio__card-visual {
-    transform: scale(1.01);
-    box-shadow: 0 3px 5px 3px var(--b-000218);
+    box-shadow: 0 3px 5px 3px rgba(255, 255, 255, 0.1);
    }
    & .portfolio__card-name {
-    text-shadow: 1px 0px 1px #000;
+    font-weight: 700;
    }
   }
   &.j-anim {
@@ -308,7 +310,7 @@
   border-radius: 20px;
   margin-bottom: 10px;
   box-shadow: 0 1px 1px 1px var(--b-000218);
-  transition: transform 0.3s linear, box-shadow 0.3s linear;
+  transition: box-shadow 0.3s linear;
  }
  &__card-img {
   object-fit: cover;
@@ -322,6 +324,7 @@
   font-weight: 500;
   transition: text-shadow 0.3s linear 0s;
   padding: 0 20px;
+  transition: font-weight 0.2s linear 0s;
   @media screen and (max-width: 768px) {
    --sz-20: 14px;
   }
