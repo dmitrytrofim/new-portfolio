@@ -460,14 +460,46 @@
  &__keys {
   position: absolute;
   left: 50%;
-  bottom: -24px;
+  bottom: -32px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
   transform: translateX(-50%);
   opacity: 0;
   transition: opacity 0.4s linear 0s;
   pointer-events: none;
+  & i {
+   display: inline-flex;
+
+   mask-repeat: no-repeat;
+   -webkit-mask-repeat: no-repeat;
+   mask-size: contain;
+   -webkit-mask-size: contain;
+   mask-position: center;
+   -webkit-mask-position: center;
+   background-color: #fff;
+  }
   @media screen and (max-width: 1024px) {
    display: none;
   }
+ }
+ &__keys-left {
+  width: 14px;
+  height: 14px;
+  mask-image: url('/src/img/svg/arrow-left.svg');
+  -webkit-mask-image: url('/src/img/svg/arrow-left.svg');
+ }
+ &__keys-keyboard {
+  width: 20px;
+  height: 20px;
+  mask-image: url('/src/img/svg/keyboard.svg');
+  -webkit-mask-image: url('/src/img/svg/keyboard.svg');
+ }
+ &__keys-right {
+  width: 14px;
+  height: 14px;
+  mask-image: url('/src/img/svg/arrow-right.svg');
+  -webkit-mask-image: url('/src/img/svg/arrow-right.svg');
  }
  &__btn {
   position: relative;
