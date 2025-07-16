@@ -560,6 +560,13 @@ body.page.j-lock {
     grid-template-columns: repeat(2, minmax(50px, 200px));
   }
 }
+@media screen and (max-width: 560px) {
+  .portfolio__btns {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+}
 .portfolio__btn {
   width: 100%;
   max-width: 300px;
